@@ -15,9 +15,8 @@ public class MyArrayOperationsTest {
 	//mocking with specific txt
 	@Test
 	public void testMyArrayOpMock(){
-	 MyFileUtilities mfu =  mock(MyFileUtilities.class);
-	 when( mao.gradeFrequencies("src/test/resources/grades.txt", null)).thenReturn(new int[] {1,1,1,1,2,1});
-	 int[] testnum = {1,1,1,1,2,1};
-	 assertArrayEquals(testnum, mao.gradeFrequencies("src/test/resources/grades.txt", mfu));
+	    MyArrayOperations mao=mock(MyArrayOperations.class);
+	    when( mao.gradeFrequencies("src/test/resources/grades.txt", null)).thenReturn(new int[] {1,1,1,1,2,1});
+	    Assert.assertArrayEquals(new int[] {1,1,1,1,2,1}, mao.gradeFrequencies("src/test/resources/grades.txt", null));
 	}
 }
