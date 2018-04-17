@@ -2,10 +2,17 @@ package dmst.seip.nafsikalampr.unit_testing;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+/**
+* class is used to group test classes
+* it is holder the @RunWith and @Suite
+*/
+
 @RunWith(Suite.class)
 @Suite.SuiteClasses({MyMathTest.class, MyMathTest_ReverseNumber_Parameterized.class})
 
-//suite tests remain empty
+/**
+* class remains empty 
+*/
 public class MyTestSuite {
    
 }
