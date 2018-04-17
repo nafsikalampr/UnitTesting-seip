@@ -10,15 +10,25 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
+
+/**
+* test implements Parameterized test for MyMath class
+*/
+
 @RunWith(Parameterized.class)
 
 public class MyMathTest_ReverseNumber_Parameterized {
+	//creating parameters and values
 	@Parameter (value = 0) 
 	public int number;
 	@Parameter (value = 1) 
 	public int result;
 	
 	MyMath mm = new MyMath();
+	
+	/**
+        * method creates the values we want our test to examine
+        */
 	
 	@Parameters
 	public static Collection<Object[]> data() {
@@ -28,7 +38,9 @@ public class MyMathTest_ReverseNumber_Parameterized {
 		return Arrays.asList(data);
 	}
 	
-	//testing a simple case of sign reverse
+	/**
+        * method checks the reverse sign method
+        */
 	@Test
 	public void testReverseNumNormalCases() {
 		assertEquals(result, mm.reverseNumber(number));
