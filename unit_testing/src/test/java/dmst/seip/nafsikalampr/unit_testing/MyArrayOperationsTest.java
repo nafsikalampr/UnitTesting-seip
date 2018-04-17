@@ -25,10 +25,24 @@ public class MyArrayOperationsTest {
 	
 	@Test
 	public void testMyArrayOpMock(){
-	    MyArrayOperations mao=mock(MyArrayOperations.class);
-	    //pre-define gradeFrequencies result
-	    when( mao.gradeFrequencies("src/test/resources/grades.txt", null)).thenReturn(new int[] {1,1,1,1,2,1});
-	    //call gradeFrequencies() for the mocked instance
-	    Assert.assertArrayEquals(new int[] {1,1,1,1,2,1}, mao.gradeFrequencies("src/test/resources/grades.txt", null));
+	    /**
+	    * Confused here
+	    *trial1
+	    *
+	    * MyArrayOperations mao=mock(MyArrayOperations.class);
+	    * //pre-define gradeFrequencies result
+	    * when( mao.gradeFrequencies("src/test/resources/grades.txt", null)).thenReturn(new int[] {1,1,1,1,2,1});
+	    * //call gradeFrequencies() for the mocked instance
+	    * Assert.assertArrayEquals(new int[] {1,1,1,1,2,1}, mao.gradeFrequencies("src/test/resources/grades.txt", null));
+	    */
+	    
+	    /**
+	    * final idea
+	    */
+	    
+	    MyFileUtilities mfu=mock(MyFileUtilities.class);
+	    int[] g = {1,1,1,1,2,1};
+	    when( mfu.readFile("src/test/resources/grades.txt")).thenReturn(g);
+	    Assert.assertArrayEquals(new int[] {0,0,0,0,0,1,0,1,2,1,1}, mao.gradeFrequencies("src/test/resources/grades.txt", mfu));
 	}
 }
