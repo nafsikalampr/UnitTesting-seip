@@ -3,10 +3,21 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+/**
+* This class reads txt file and creates the array of its elements 
+*/
+
 public class MyFileUtilities {
+    
+    /**
+    * method reads txt from path
+    * @param filepath
+    * @exception is thrown in case method can not read file from path
+    * reads the elements and adds them to list and converts list to array
+    */
+    
     public int[] readFile(String filepath) throws IllegalArgumentException {
 
-    	    //initializing list
     	    ArrayList<Integer> integers = new ArrayList<Integer>();
     	    
     	    try {
@@ -15,14 +26,12 @@ public class MyFileUtilities {
     	    	   //reading and adding elements to list as long as the file hasn't ended
     	          integers.add(Integer.parseInt(br.readLine()));
     	       }
-               //closing our reader
     	       br.close();
 
-            //exception in case class can't read our file
     	    }catch(Exception ex){
     		   throw new IllegalArgumentException("error reading filepath" +ex.getMessage());
     	    }
-    	    //converting from list to array named "result"
+        
     	    int[] result = new int[integers.size()];
     	    for (int i=0; i<integers.size(); i++) {
     	    	   result[i] = integers.get(i);
